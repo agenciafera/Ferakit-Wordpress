@@ -1,0 +1,134 @@
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>GarageInn</title>
+	<link rel="stylesheet" href="{{site.theme.link}}/assets/css/styles.css" type="text/css" media="screen" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/favicons/manifest.json">
+	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#fa3838">
+	<link rel="shortcut icon" href="/favicons/favicon.ico">
+	<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#fa3838">
+	{{wp_head}}
+</head>
+
+<body class="{{ body_class }} {{ page_class}}">
+	<header class="main-header js-header">
+		<div class="grid-container">
+			<div class="layout-group group -mobile -horizontal-justified -vertical-centered">
+				<div class="division -narrow brand">
+					<a href="{{ site.url }}"><h1 class="logo">GarageInn</h1></a>
+				</div>
+				<!-- end of .division -->
+				<nav class="division -narrow main-nav js-nav">
+					{% include "partials/menu.twig" with {'menu': menu.get_items} %}
+				</nav>
+				<!-- end of .division -->
+				<div class="division -narrow cta">
+					<div class="layout-group -mobile -small">
+						<div class="division -narrow">
+							<a href="#" class="btn-red">Fazer Reserva</a>
+						</div>
+						<div class="division -narrow">
+							<a href="#" class="btn-red js-trigger-menu d-none@tablet d-none@desktop">Menu</a>
+						</div>
+					</div>
+				</div>
+				<!-- end of .division -->
+			</div>
+		</div>
+		<!-- end of .grid-container -->
+
+	</header>
+	<!-- end of header.main-header -->
+
+	<!-- Banner -->
+	{% block banner %}{% endblock %}
+	<!-- end of Banner -->
+
+	<!-- Main Content -->
+	{% block mainContent %}{% endblock %}
+	<!-- end of Main Content -->
+
+	<footer class="main-footer">
+		<div class="grid-container">
+			<div class="layout-group">
+				<div class="division -4">
+					<h4 class="title-5 m-bottom-2">Garageinn</h4>
+					<p>Atuante no mercado desde 1997 e sediada em São Paulo, a Garage Inn é uma empresa especializada no parqueamento e guarda de veículos em edifícios comerciais, flats, agências bancárias, aeroportos, hospitais, pátios e terrenos.</p>
+					<div class="m-top-4">
+						<h5 class="title-4 m-bottom-1">Formas de Pagamento</h5>
+						<img src="{{site.theme.link}}/assets/images/cards.png" alt="">
+					</div>
+					<div class="m-top-4">
+						<h5 class="title-4 m-bottom-1">Aceitamos também:</h5>
+						<img src="{{site.theme.link}}/assets/images/other-payments.png" alt="">
+					</div>
+				</div>
+				<!-- end of .division -->
+				<div class="division">
+					<h4 class="title-5 m-bottom-2">Mapa do Site</h4>
+					<nav>
+						{% include "partials/menu.twig" with {'menu': menu.get_items} %}
+					</nav>
+				</div>
+				<!-- end of .division -->
+				<div class="division">
+					<div>
+						<h4 class="title-5 m-bottom-2">Como Chegar</h4>
+						<h5 class="text-2 m-bottom-1">
+							GarageInn - Viracopos
+						</h5>
+						<a href="#" class="btn-red -small" title="Veja no Google Maps a localização do Estacionamento GarageInn - Viracopos">Veja o Mapa</a>
+					</div>
+					<div class="m-top-3">
+						<h4 class="title-5 m-bottom-2">
+							Reserva Online
+						</h4>
+						<a href="#" class="btn-red -small" title="Faça sua reserva online no Estacionamento GarageInn">Fazer Reserva</a>
+					</div>
+				</div>
+				<!-- end of .division -->
+				<div class="division">
+					<h4 class="title-5 m-bottom-2">Fale Conosco</h4>
+					<div class="m-bottom-2">
+						<h5 class="title-4">Central</h5>
+						<a href="tel: (11) 3230-3082">(11) 3230-3082</a>
+					</div>
+					<div class="m-bottom-2">
+						<h5 class="title-4">Viracopos</h5>
+						<a href="tel: (19) 3725-5971">(19) 3725-5971</a>
+					</div>
+					<div class="m-bottom-2">
+						<h5 class="title-4">Atendimento por Email</h5>
+						<a href="mailto:atendimento@garageinn.com.br">atendimento@garageinn.com.br</a>
+					</div>
+					<div>
+						<h5 class="title-4">GarageInn</h5>
+						<p>
+							Rod. Santos Dumont, 66  <br>
+							Cambuí, Campinas - SP <br>
+							13024-020
+						</p>
+					</div>
+				</div>
+				<!-- end of .division -->
+			</div>
+			<!-- end of .layout-group -->
+		</div>
+		<!-- end of .grid-container -->
+	</footer>
+	<!-- end of footer.main-footer -->
+
+	<!-- Scripts -->
+	{{wp_footer}}
+	<script src="{{site.theme.link}}/assets/js/app.js"></script>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<!-- end of Scripts -->
+
+</body>
+</html>

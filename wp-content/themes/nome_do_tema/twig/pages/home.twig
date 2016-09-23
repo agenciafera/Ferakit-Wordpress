@@ -1,0 +1,144 @@
+{% extends "layout/default.twig" %}
+
+{% block mainContent %}
+<section class="make-reservation">
+  <div class="banner"></div>
+  <div class="grid-container">
+    <div class="titlebox">
+      <i class="logo m-bottom-2"></i>
+      <h2 class="title-1 -preline">Estacione e
+      viaje tranquilo!</h2>
+    </div>
+    {% include "partials/reservation-box.twig" %}
+  </div>
+</section>
+<!-- end of section.make-reservation -->
+
+
+<section class="benefits m-top-10">
+  <div class="grid-container">
+    <div class="layout-group">
+      <div class="division -narrow">
+        <h2 class="title-2 m-bottom-2">Benefícios</h2>
+        <p class="_preline text-1 theme-color-gray">Quais são os benefícios
+        de ser cliente Garageinn</p>
+      </div>
+      <div class="division">
+        <ul class="layout-group -multiline">
+          {% for benefit in benefits %}
+          <li class="division -6 block-icon">
+            <div class="icon">
+              <i class="icon-{{ benefit.icon }}"></i>
+            </div>
+            <div class="info">
+              <h3 class="title-3 m-bottom-1">{{ benefit.title }}</h3>
+              <p class="text-2">{{ benefit.content|truncate(20) }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- end of .grid-container -->
+</section>
+<!-- end of section.benefits -->
+
+<section class="about m-top-10 m-bottom-10">
+  <div class="layout-group">
+    <div class="division -6">
+      <img src="{{site.theme.link}}/assets/images/van.png" alt="" class="van">
+    </div>
+    <div class="division -6">
+      <div class="infos">
+        <h2 class="title-2 m-bottom-2">A GarageInn</h2>
+        <h3 class="title-3 _preline">Estacionamento Aeroporto
+        Campinas/Viracopos</h3>
+        <p class="m-top-3 text-2">
+          Atuante no mercado desde 1997 e sediada em São Paulo, a Garage Inn é uma empresa especializada no parqueamento e guarda de veículos em edifícios comerciais, flats, agências bancárias, aeroportos, hospitais, pátios e terrenos.
+        </p>
+        <a href="#" class="btn-red m-top-3">Saiba Mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end of section.about -->
+
+<section class="news m-bottom-10">
+  <div class="grid-container">
+    <h2 class="title-2 theme-color-red">Notícias</h2>
+    <h3 class="title-3 m-bottom-7">Estacionamento Aeroporto Campinas/Viracopos</h3>
+    <ul class="layout-group -multiline">
+      {% for post in latestPosts %}
+      <li class="division -4">
+        <img src="{{ post.thumbnail.src|resize(350,160) }}" alt="" class="image-responsive m-bottom-2">
+        <h3 class="title-4 m-bottom-1">{{ post.title }}</h3>
+        <p class="text-2">{{ post.post_excerpt|truncate(50) }}</p>
+        <a href="{{ post.link }}" class="btn-red m-top-2">Ler Mais</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- end of .grid-container -->
+</section>
+<!-- end of section.news -->
+
+<section class="social-responsability m-bottom-10">
+  <div class="grid-container">
+    <h3 class="title-4 m-bottom-1">Responsabilidade Social</h3>
+    <img src="{{site.theme.link}}/assets/images/social-responsability.jpg" alt="" class="image-responsive">
+  </div>
+</section>
+<!-- end of section.social-responsability -->
+
+<section class="facilities m-bottom-10">
+  <div class="grid-container">
+    <h2 class="title-2 theme-color-red">Facilidades</h2>
+    <h3 class="title-3 m-bottom-7">Estacionamento Aeroporto Campinas/Viracopos</h3>
+    <div class="facilities">
+      <ul class="layout-group">
+        <li class="division -4">
+          <div class="cover-title m-bottom-2">
+            <div class="cover" style="background-image: url({{site.theme.link}}/assets/images/mensalist.jpg);"></div>
+            <h4 class="title">Mensalista</h4>
+          </div>
+          <p class="text-2 p-left-2 p-right-5">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, eius.
+          </p>
+          <div class="m-top-2 p-left-2">
+            <a href="#" class="btn-red">Ver Mais</a>
+          </div>
+        </li>
+        <li class="division -4">
+          <div class="cover-title m-bottom-2">
+            <div class="cover" style="background-image: url({{site.theme.link}}/assets/images/seals.jpg);"></div>
+            <h4 class="title">Selo Convênio</h4>
+          </div>
+          <p class="text-2 p-left-2 p-right-5">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, eius.
+          </p>
+          <div class="m-top-2 p-left-2">
+            <a href="#" class="btn-red">Ver Mais</a>
+          </div>
+        </li>
+        <li class="division -4">
+          <div class="cover-title m-bottom-2">
+            <div class="cover" style="background-image: url({{site.theme.link}}/assets/images/descount.jpg);"></div>
+            <h4 class="title">Desconto ao Segurado</h4>
+          </div>
+          <p class="text-2 p-left-2 p-right-5">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, eius.
+          </p>
+          <div class="m-top-2 p-left-2">
+            <a href="#" class="btn-red">Ver Mais</a>
+          </div>
+        </li>
+      </ul>
+      <!-- end of ul.layout-group -->
+    </div>
+    <!-- end of div.facilities -->
+  </div>
+  <!-- end of .grid-container -->
+</section>
+<!-- end of section.facilities -->
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout/two-columns.twig" %}
+
+{% block banner %}
+  {% include 'partials/banner.twig' %}
+{% endblock %}
+
+{% block content %}
+  <div class="rich-content m-bottom-5">
+    {{post.content}}
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+  <div class="m-bottom-6">{% include 'partials/sidebar-lastnews.twig' %}</div>
+  <div class="m-bottom-6">{% include 'partials/sidebar-units.twig' %}</div>
+{% endblock %}

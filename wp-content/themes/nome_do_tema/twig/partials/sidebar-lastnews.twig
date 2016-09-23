@@ -1,0 +1,10 @@
+<div class="latest-news">
+  <h3 class="title-6">Principais Notícias</h3>
+  <ul class="m-top-1 red-list">
+    {% for post in latestPosts %}
+    <li>
+      <a href="{{ post.link }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
