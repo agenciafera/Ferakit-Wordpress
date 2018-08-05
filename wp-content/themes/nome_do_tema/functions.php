@@ -54,19 +54,31 @@ new StarterSite();
 =            Custom Breadcrumbs            =
 ==========================================*/
 
-add_filter( 'wpseo_breadcrumb_links', 'custom_trail' );
-function custom_trail( $links ) {
-    global $post;
+add_filter( 'wpseo_breadcrumb_links', 'my_wpseo_breadcrumb_links' );
+function my_wpseo_breadcrumb_links( $links ) {
 
-    if (is_singular('post')) {
-        $breadcrumb[] = array(
-            'url' => get_page_link(40),
-            'text' => 'Notícias',
-        );
-        array_splice( $links, 1, -2, $breadcrumb );
+    if ( is_single() ) {
+        $cpt_object = get_post_type_object( get_post_type() );
+        if ( ! $cpt_object->_builtin ) {
+            $landing_page = get_page_by_path( $cpt_object->rewrite['slug'] );
+            array_splice( $links, -1, 0, array(
+                array(
+                    'id'    => $landing_page->ID
+                )
+            ));
+        }
     }
 
     return $links;
 }
 
 /*=====  End of Custom Breadcrumbs  ======*/
+
+if( function_exists('acf_add_options_page') ) {
+
+  acf_add_options_page(array(
+    'page_title'  => 'Site Options',
+    'redirect'    => false
+  ));
+
+}
