@@ -1,1 +1,27 @@
 {% extends "layout/default.twig" %}
+
+{% block mainContent %}
+<section class="myposttype">
+  <h2 class="title-2 -t-center m-top-5 m-bottom-8">Lorem Ipsum</h2>
+  <div class="container">
+    <div class="owl-carousel" data-carousel="home">
+
+      {% for mypost in myposttype %}
+      <div class="item">
+        <a href="{{mypost.link}}" class="fera-card -image-bg -black">
+          <img src="{{TimberImage(mypost.get_field('carousel_img')).src |resize(333, 380)}}" class="card-background">
+          <span class="card-body">
+            <h3 class="card-title">{{mypost.title}}</h3>
+            <span class="card-text">
+              {{mypost.preview}}
+            </span>
+          </span>
+        </a>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
