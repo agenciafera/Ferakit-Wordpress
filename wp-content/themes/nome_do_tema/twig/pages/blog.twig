@@ -1,0 +1,43 @@
+{% extends "layout/default.twig" %}
+
+{% block mainContent %}
+
+<article class="single">
+
+  {% if post.thumbnail.src %}
+  <div class="banner">
+    <picture>
+      <source srcset="{{post.thumbnail.src|resize(1920, 380)}}" media="(min-width: 800px)">
+      <img src="{{post.thumbnail.src|resize(768, 280)}}" alt="{{post.title}}">
+    </picture>
+  </div>
+  {% endif %}
+
+  <div class="grid-container">
+    
+    <header class="top-article">
+      <h1 class="article-title fera-title title-1">{{ post.title }}</h1>
+      {{ breadcrumbs }}
+    </header>
+
+      <div class="layout-group -multiline">
+        {% for post in blogs %}
+            <div class="division -6">
+              <div class="fera-card -darkness -horizontal">
+                <a href="{{post.link}}" class="card-highlight">
+                  {% if post.thumbnail %}
+                  <img src="{{post.thumbnail.src|resize(395, 260)}}">
+                  {% endif %}
+                </a>
+                <div class="card-body">
+                  <h3 class="card-title"><a href="{{post.link}}">{{post.title}}</a></h3>
+                  <p class="card-text"><a href="{{post.link}}"> {{post.post_excerpt}}</a></p>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+  <div>
+</article>
+{{ fn('wp_pagenavi') }}
+{% endblock %}
