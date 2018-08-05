@@ -1,1 +1,74 @@
 {% extends "layout/default.twig" %}
+
+{% block mainContent %}
+
+<article class="page">
+
+  {% if post.thumbnail.src %}
+  <div class="banner">
+    <picture>
+      <source srcset="{{post.thumbnail.src|resize(1920, 380)}}" media="(min-width: 800px)">
+      <img src="{{post.thumbnail.src|resize(768, 280)}}" alt="{{post.title}}">
+    </picture>
+  </div>
+  {% endif %}
+
+  <div class="grid-container">
+    <header class="top-article">
+      <h1 class="article-title fera-title title-1">{{ post.title }}</h1>
+      {{ breadcrumbs }}
+    </header>
+
+    <div class="content-article">
+
+      {% if post.content %}
+        <div class="fera-rich-content">
+          {{ post.content }}
+        </div>
+      {% endif %}
+
+      {% for module in post.get_field('modules') %}
+      <!-- Rich Content -->
+      {% if module.acf_fc_layout == 'rich_content' %}
+      <div class="fera-rich-content">
+        {{ module.content }}
+      </div>
+      {% endif %}
+
+      <!-- Topics -->
+      {% if module.acf_fc_layout == 'topics' %}
+      <div class="m-top-10 m-bottom-10">
+        <ul class="fera-topics layout-group -multiline">
+          {% for topic in module.topics_list %}
+          <li class="topic division -4">
+            <h2 class="topic-title">{{ topic.topic_title }}</h2>
+            <p class="topic-content">
+              {{ topic.topic_content }}
+            </p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <!-- Horizontal List -->
+      {% if module.acf_fc_layout == 'horizontal_list' %}
+      <div class="m-top-10 m-bottom-10">
+        <ul class="fera-horizontal-list layout-group -multiline">
+          {% for item in module.list %}
+          <li class="item division -4">
+            <h2 class="item-title">{{ item.list_item }}</h2>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+
+
+</article>
+
+{% endblock %}
