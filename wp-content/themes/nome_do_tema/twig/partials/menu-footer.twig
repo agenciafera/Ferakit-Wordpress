@@ -1,0 +1,16 @@
+{% if menu_footer %}
+  <ul class="list">
+  {% for item in menu_footer %}
+  <li class="item {{item.classes | join(' ')}}">
+    <a href="{{item.get_link}}" class="link">{{item.title}}</a>
+    {% if item.get_children %}
+      <ul class="submenu">
+        {% for child in item.get_children %}
+          <li class="item"><a href="{{child.get_link}}" class="link">{{child.title}}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+  </ul>
+{% endif %}
