@@ -1,20 +1,73 @@
 <html lang="pt-br">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>{{ site.name }}</title>
-		<link rel="stylesheet" href="{{ site.theme.link }}/assets/css/styles.css" type="text/css" media="screen" />
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		{{wp_head}}
-	</head>
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-');</script>
+  <!-- End Google Tag Manager -->
 
-	<body class="{{ body_class }} {{ page_class}}">
+  <meta charset="UTF-8">
+  <title>{{ site.name }}</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href="{{ theme.link }}/assets/images/favicon.png">
 
-		<!-- Scripts -->
-		{{wp_footer}}
-		<script src="{{site.theme.link}}/assets/js/app.js"></script>
-		<!-- end of Scripts -->
+  {{wp_head}}
 
-	</body>
+  <link rel="stylesheet" href="{{ site.theme.link }}/assets/css/app.min.css" type="text/css" media="screen" />
+</head>
 
+<body class="{{ body_class }} {{ page_class}}">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  {% block header %}
+      <header class="fera-header">
+        <div class="grid-container">
+          <a href="javascript:;" class="menu-mobile">
+            <div class="icon">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </a>
+          <div class="header-logo">
+            <a href="{{site.url}}"><img src="{{ theme.link }}/assets/images/logo.svg" height="60"></a>
+          </div>
+          <nav class="header-nav">
+            {% include "partials/menu.twig" with {'menu': menu.get_items} %}
+          </nav>
+        </div>
+      </header>
+    {% endblock %}
+
+    {% block mainContent %}
+    {% endblock %}
+
+
+    {% block footer %}
+    <footer class="main-footer">
+      <div class="grid-container">
+        <div class="layout-group menu-footer">
+          <div class="division -4">
+            <h4>{{site.name}}</h4>
+            {% include "partials/menu-footer.twig" with {'menu_footer': menu_footer.get_items} %}
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="grid-container">
+          <p>Lorem ipsum sit dolor amet</p>
+        </div>
+      </div>
+    </footer>
+    {% endblock %}
+
+    <!-- Scripts -->
+    {{wp_footer}}
+    <script src="{{site.theme.link}}/assets/js/app.js"></script>
+    <!-- end of Scripts -->
+</body>
 </html>
