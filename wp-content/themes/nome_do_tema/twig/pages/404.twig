@@ -1,0 +1,16 @@
+{% extends "layout/default.twig" %}
+
+{% block content %}
+  <div class="grid-container">
+    <div class="box">
+      <img src="{{ site.theme.link }}/assets/images/404.png" alt="404 - Página Não Encontrada">
+      <p class="text-default m-top-3">
+        Desculpe, aconteceu algum erro, o servidor pode estar temporariamente indisponível ou essa página não disponível. Tente novamente em alguns segundos...
+      </p>
+      <a href="{{ site.link }}" class="btn-red -big m-top-4">Voltar para Home</a>
+    </div>
+  </div>
+  <!-- end of .grid-container -->
+{% endblock %}
+
+{% block breadcrumb %}{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout/default.twig" %}
+
+{% block mainContent %}
+<section class="archive-page">
+  <div class="grid-container">
+    <h1 class="fera-title -title-1">{{title}}</h1>
+    
+    {{ breadcrumbs }}
+
+      <div class="layout-group -multiline">
+        {% for post in posts %}
+            <div class="division -3">
+              <div class="fera-card -darkness">
+                <a href="{{post.link}}" class="card-highlight">
+                  <img src="{{post.thumbnail.src}}" class="card-background">
+                </a>
+                <div class="card-body">
+                  <h3 class="card-title">{{post.title}}</h3>
+                  <p class="card-text"> {{post.excerpt}}</p>
+                </div>
+              </div>
+            </div>
+      {% endfor %}
+      </div>
+  <div>
+</section>
+{% endblock %}
